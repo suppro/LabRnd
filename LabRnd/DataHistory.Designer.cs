@@ -279,8 +279,6 @@ namespace LabRnd {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class DataTable1DataTable : global::System.Data.TypedTableBase<DataTable1Row> {
             
-            private global::System.Data.DataColumn columndate;
-            
             private global::System.Data.DataColumn columnnumber_rnd;
             
             private global::System.Data.DataColumn columnrange_min;
@@ -322,14 +320,6 @@ namespace LabRnd {
             protected DataTable1DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn dateColumn {
-                get {
-                    return this.columndate;
-                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -409,10 +399,9 @@ namespace LabRnd {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public DataTable1Row AddDataTable1Row(System.DateTime date, int number_rnd, int range_min, string name, int range_max, int result) {
+            public DataTable1Row AddDataTable1Row(int number_rnd, int range_min, string name, int range_max, int result) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        date,
                         number_rnd,
                         range_min,
                         name,
@@ -440,7 +429,6 @@ namespace LabRnd {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columndate = base.Columns["date"];
                 this.columnnumber_rnd = base.Columns["number_rnd"];
                 this.columnrange_min = base.Columns["range_min"];
                 this.columnname = base.Columns["name"];
@@ -451,8 +439,6 @@ namespace LabRnd {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columndate = new global::System.Data.DataColumn("date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndate);
                 this.columnnumber_rnd = new global::System.Data.DataColumn("number_rnd", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnumber_rnd);
                 this.columnrange_min = new global::System.Data.DataColumn("range_min", typeof(int), null, global::System.Data.MappingType.Element);
@@ -606,22 +592,6 @@ namespace LabRnd {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime date {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableDataTable1.dateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'date\' в таблице \'DataTable1\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDataTable1.dateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int number_rnd {
                 get {
                     try {
@@ -698,18 +668,6 @@ namespace LabRnd {
                 set {
                     this[this.tableDataTable1.resultColumn] = value;
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsdateNull() {
-                return this.IsNull(this.tableDataTable1.dateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetdateNull() {
-                this[this.tableDataTable1.dateColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -932,7 +890,6 @@ namespace LabRnd.DataHistoryTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "DataTable1";
-            tableMapping.ColumnMappings.Add("date", "date");
             tableMapping.ColumnMappings.Add("number_rnd", "number_rnd");
             tableMapping.ColumnMappings.Add("range_min", "range_min");
             tableMapping.ColumnMappings.Add("name", "name");
@@ -954,9 +911,9 @@ namespace LabRnd.DataHistoryTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT History.date, History.number_rnd, History.range_min, Resource.name, Histor" +
-                "y.range_max, History.result\r\nFROM     History INNER JOIN\r\n                  Reso" +
-                "urce ON History.url_id = Resource.id";
+            this._commandCollection[0].CommandText = "SELECT History.number_rnd, History.range_min, Resource.name, History.range_max, H" +
+                "istory.result\r\nFROM     History INNER JOIN\r\n                  Resource ON Histor" +
+                "y.url_id = Resource.id";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

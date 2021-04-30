@@ -44,24 +44,24 @@ namespace LabRnd
             this.btnGenerate = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvHistory = new System.Windows.Forms.DataGridView();
-            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dataHistory = new LabRnd.DataHistory();
+            this.resourceTableAdapter = new LabRnd.DataResouceTableAdapters.ResourceTableAdapter();
+            this.dataHistoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataTable1TableAdapter = new LabRnd.DataHistoryTableAdapters.DataTable1TableAdapter();
+            this.button1 = new System.Windows.Forms.Button();
             this.numberrndDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rangeminDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rangeminDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rangemaxDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resultDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataHistoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataHistory = new LabRnd.DataHistory();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dataTable1TableAdapter = new LabRnd.DataHistoryTableAdapters.DataTable1TableAdapter();
-            this.resourceTableAdapter = new LabRnd.DataResouceTableAdapters.ResourceTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataResouceBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataResouce)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistory)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataHistoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataHistory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataHistoryBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -148,6 +148,7 @@ namespace LabRnd
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.resultRnd);
             this.panel1.Controls.Add(this.btnGenerate);
             this.panel1.Controls.Add(this.label1);
@@ -198,10 +199,9 @@ namespace LabRnd
             this.dgvHistory.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dgvHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHistory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dateDataGridViewTextBoxColumn,
             this.numberrndDataGridViewTextBoxColumn,
-            this.rangeminDataGridViewTextBoxColumn,
             this.nameDataGridViewTextBoxColumn,
+            this.rangeminDataGridViewTextBoxColumn,
             this.rangemaxDataGridViewTextBoxColumn,
             this.resultDataGridViewTextBoxColumn});
             this.dgvHistory.DataSource = this.dataHistoryBindingSource;
@@ -213,64 +213,6 @@ namespace LabRnd
             this.dgvHistory.Size = new System.Drawing.Size(753, 432);
             this.dgvHistory.TabIndex = 1;
             // 
-            // dateDataGridViewTextBoxColumn
-            // 
-            this.dateDataGridViewTextBoxColumn.DataPropertyName = "date";
-            this.dateDataGridViewTextBoxColumn.HeaderText = "date";
-            this.dateDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
-            this.dateDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // numberrndDataGridViewTextBoxColumn
-            // 
-            this.numberrndDataGridViewTextBoxColumn.DataPropertyName = "number_rnd";
-            this.numberrndDataGridViewTextBoxColumn.HeaderText = "number_rnd";
-            this.numberrndDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.numberrndDataGridViewTextBoxColumn.Name = "numberrndDataGridViewTextBoxColumn";
-            this.numberrndDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // rangeminDataGridViewTextBoxColumn
-            // 
-            this.rangeminDataGridViewTextBoxColumn.DataPropertyName = "range_min";
-            this.rangeminDataGridViewTextBoxColumn.HeaderText = "range_min";
-            this.rangeminDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.rangeminDataGridViewTextBoxColumn.Name = "rangeminDataGridViewTextBoxColumn";
-            this.rangeminDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
-            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // rangemaxDataGridViewTextBoxColumn
-            // 
-            this.rangemaxDataGridViewTextBoxColumn.DataPropertyName = "range_max";
-            this.rangemaxDataGridViewTextBoxColumn.HeaderText = "range_max";
-            this.rangemaxDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.rangemaxDataGridViewTextBoxColumn.Name = "rangemaxDataGridViewTextBoxColumn";
-            this.rangemaxDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // resultDataGridViewTextBoxColumn
-            // 
-            this.resultDataGridViewTextBoxColumn.DataPropertyName = "result";
-            this.resultDataGridViewTextBoxColumn.HeaderText = "result";
-            this.resultDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.resultDataGridViewTextBoxColumn.Name = "resultDataGridViewTextBoxColumn";
-            this.resultDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // dataHistoryBindingSource
-            // 
-            this.dataHistoryBindingSource.DataMember = "DataTable1";
-            this.dataHistoryBindingSource.DataSource = this.dataHistory;
-            // 
-            // dataHistory
-            // 
-            this.dataHistory.DataSetName = "DataHistory";
-            this.dataHistory.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -281,13 +223,73 @@ namespace LabRnd
             this.label5.TabIndex = 0;
             this.label5.Text = "История генераций";
             // 
-            // dataTable1TableAdapter
+            // dataHistory
             // 
-            this.dataTable1TableAdapter.ClearBeforeFill = true;
+            this.dataHistory.DataSetName = "DataHistory";
+            this.dataHistory.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // resourceTableAdapter
             // 
             this.resourceTableAdapter.ClearBeforeFill = true;
+            // 
+            // dataHistoryBindingSource
+            // 
+            this.dataHistoryBindingSource.DataMember = "DataTable1";
+            this.dataHistoryBindingSource.DataSource = this.dataHistory;
+            // 
+            // dataTable1TableAdapter
+            // 
+            this.dataTable1TableAdapter.ClearBeforeFill = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(15, 444);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(296, 34);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Обновить таблицу";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.refreshFormBtn);
+            // 
+            // numberrndDataGridViewTextBoxColumn
+            // 
+            this.numberrndDataGridViewTextBoxColumn.DataPropertyName = "number_rnd";
+            this.numberrndDataGridViewTextBoxColumn.HeaderText = "Номер рандома";
+            this.numberrndDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.numberrndDataGridViewTextBoxColumn.Name = "numberrndDataGridViewTextBoxColumn";
+            this.numberrndDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Ресурс";
+            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // rangeminDataGridViewTextBoxColumn
+            // 
+            this.rangeminDataGridViewTextBoxColumn.DataPropertyName = "range_min";
+            this.rangeminDataGridViewTextBoxColumn.HeaderText = "Мин. диапазон";
+            this.rangeminDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.rangeminDataGridViewTextBoxColumn.Name = "rangeminDataGridViewTextBoxColumn";
+            this.rangeminDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // rangemaxDataGridViewTextBoxColumn
+            // 
+            this.rangemaxDataGridViewTextBoxColumn.DataPropertyName = "range_max";
+            this.rangemaxDataGridViewTextBoxColumn.HeaderText = "Макс. диапазон";
+            this.rangemaxDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.rangemaxDataGridViewTextBoxColumn.Name = "rangemaxDataGridViewTextBoxColumn";
+            this.rangemaxDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // resultDataGridViewTextBoxColumn
+            // 
+            this.resultDataGridViewTextBoxColumn.DataPropertyName = "result";
+            this.resultDataGridViewTextBoxColumn.HeaderText = "Результат";
+            this.resultDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.resultDataGridViewTextBoxColumn.Name = "resultDataGridViewTextBoxColumn";
+            this.resultDataGridViewTextBoxColumn.Width = 125;
             // 
             // MainForm
             // 
@@ -308,8 +310,8 @@ namespace LabRnd
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistory)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataHistoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataHistory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataHistoryBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -329,18 +331,18 @@ namespace LabRnd
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dgvHistory;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numberrndDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rangeminDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rangemaxDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn resultDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource dataHistoryBindingSource;
         private DataHistory dataHistory;
-        private DataHistoryTableAdapters.DataTable1TableAdapter dataTable1TableAdapter;
         private System.Windows.Forms.BindingSource dataResouceBindingSource;
         private DataResouce dataResouce;
         private DataResouceTableAdapters.ResourceTableAdapter resourceTableAdapter;
+        private System.Windows.Forms.BindingSource dataHistoryBindingSource;
+        private DataHistoryTableAdapters.DataTable1TableAdapter dataTable1TableAdapter;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numberrndDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rangeminDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rangemaxDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn resultDataGridViewTextBoxColumn;
     }
 }
 

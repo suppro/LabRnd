@@ -16,7 +16,6 @@ namespace LabRnd
     {
         public int id { get; set; }
         public Nullable<int> url_id { get; set; }
-        public Nullable<System.DateTime> date { get; set; }
         public Nullable<int> number_rnd { get; set; }
         public Nullable<int> range_min { get; set; }
         public Nullable<int> range_max { get; set; }

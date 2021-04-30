@@ -1,19 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
-using System.Threading;
 
 namespace LabRnd
 {
     class Randstaff : Random
     {
-        public override void getRndValue(ComboBox cbResource, Label resultRnd)
+        public override void getRndValue(ComboBox cbResource, Label resultRnd, int valMin, int valMax)
         {
             string resourceName = cbResource.Text;
             string url;
@@ -26,24 +22,27 @@ namespace LabRnd
                 url = model.url;
                 
             }
-            MessageBox.Show(resourceName);
             ChromeOptions chromeOptions = new ChromeOptions();
-            chromeOptions.AddArguments("headless");
+            //chromeOptions.AddArguments("headless");
             ChromeDriverService driverService = ChromeDriverService.CreateDefaultService();
             driverService.HideCommandPromptWindow = true;
             ChromeDriver browser = new ChromeDriver(driverService, chromeOptions);
-            browser.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
-
+            WebDriverWait wait = new WebDriverWait(browser, TimeSpan.FromSeconds(10));
             browser.Navigate().GoToUrl(url);
-            IWebElement button = browser.FindElement(By.CssSelector("#button"));
+            IWebElement button = wait.Until(e => e.FindElement(By.CssSelector("#button")));
             button = browser.FindElement(By.CssSelector("#button"));
-            WebDriverWait wait = new WebDriverWait(browser, TimeSpan.FromSeconds(5));
-  
+            IWebElement imputMin = wait.Until(e => e.FindElement(By.CssSelector("#number-start")));
+            imputMin.Click();
+            imputMin.Clear();
+            imputMin.SendKeys(valMin.ToString());
+            IWebElement imputMax = wait.Until(e => e.FindElement(By.CssSelector("#number-end")));
+            imputMax.Click();
+            imputMax.Clear();
+            imputMax.SendKeys(valMax.ToString());
             button.Click();
-            IWebElement getValue = wait.Until(e => e.FindElement(By.CssSelector(".cur")));
-            getValue = wait.Until(e => e.FindElement(By.CssSelector(".cur")));
-            MessageBox.Show(getValue.Text);
-            resultRnd.Text = getValue.Text;
+            IWebElement getValue = wait.Until(e => e.FindElement(By.CssSelector(".new")));
+            resultRnd.Text = getValue.GetAttribute("innerText");
+            browser.Close();
         }
     }
 }
